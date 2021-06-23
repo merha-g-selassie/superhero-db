@@ -1,38 +1,34 @@
-import { GetServerSideProps, NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next';
+import React from 'react';
+import { HeroCardList } from '../components/HeroCardList';
+import { SuperHeroService } from '../services/SuperHeroService';
+import { CustomError } from '../types/CustomError';
+import { SuperHero } from '../types/SuperHero';
 
 interface Props {
-  launch: {
-    mission: string
-    site: string
-    timestamp: number
-    rocket: string
-  }
+  response: SuperHero[] | CustomError;
 }
 
-const IndexPage: NextPage<Props> = ({ launch }) => {
-  const date = new Date(launch.timestamp)
-  return (
-    <main>
-      <h1>Next SpaceX Launch: {launch.mission}</h1>
-      <p>
-        {launch.rocket} will take off from {launch.site} on {date.toDateString()}
-      </p>
-    </main>
-  )
-}
-export default IndexPage
+const IndexPage: NextPage<Props> = ({ response }) => {
+  console.log(response);
+
+  return Array.isArray(response) ? (
+    <div>
+      <HeroCardList heroes={response} />
+    </div>
+  ) : (
+    <div>Error</div>
+  );
+};
+
+export default IndexPage;
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const response = await fetch('https://api.spacexdata.com/v3/launches/next')
-  const nextLaunch = await response.json()
+  const superHeroService = new SuperHeroService();
+  const response = await superHeroService.getAllSuperHeroes();
   return {
     props: {
-      launch: {
-        mission: nextLaunch.mission_name,
-        site: nextLaunch.launch_site.site_name_long,
-        timestamp: nextLaunch.launch_date_unix * 1000,
-        rocket: nextLaunch.rocket.rocket_name,
-      },
+      response: response,
     },
-  }
-}
+  };
+};
