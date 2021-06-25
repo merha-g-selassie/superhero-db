@@ -6,6 +6,7 @@ import {
   makeStyles,
   Typography,
 } from '@material-ui/core';
+import Link from 'next/link';
 import React from 'react';
 import { SuperHero } from '../types/SuperHero';
 
@@ -15,10 +16,10 @@ interface HeroCardProps {
 
 const useStyles = makeStyles({
   root: {
-    width: 200,
+    width: 260,
   },
   media: {
-    height: 140,
+    height: 250,
   },
   contentRoot: {
     padding: '3px 10px',
@@ -28,18 +29,20 @@ const useStyles = makeStyles({
 export const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
   const classes = useStyles();
   return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia className={classes.media} image={hero.images.md} title={hero.name} />
-        <CardContent className={classes.contentRoot}>
-          <Typography align="left" gutterBottom variant="h6" noWrap>
-            {hero.name}
-          </Typography>
-          <Typography align="left" gutterBottom variant="subtitle1" noWrap>
-            {hero.biography.fullName ? hero.biography.fullName : 'Unknown identity'}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <Link href={`/hero/${hero.id}`}>
+      <Card className={classes.root}>
+        <CardActionArea>
+          <CardMedia className={classes.media} image={hero.images.sm} title={hero.name} />
+          <CardContent className={classes.contentRoot}>
+            <Typography align="left" gutterBottom variant="h6" noWrap>
+              {hero.name}
+            </Typography>
+            <Typography align="left" gutterBottom variant="subtitle1" noWrap>
+              {hero.biography.fullName ? hero.biography.fullName : 'Unknown identity'}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </Link>
   );
 };

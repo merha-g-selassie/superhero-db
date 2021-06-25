@@ -27,6 +27,9 @@ module.exports = {
           'plugin:prettier/recommended', // Prettier plugin
         ],
         rules: {
+          // note you must disable the base rule as it can report incorrect errors
+          "no-empty-function": "off",
+          "@typescript-eslint/no-empty-function": ["off"],
           // We will use TypeScript's types for component props instead
           'react/prop-types': 'off',
   

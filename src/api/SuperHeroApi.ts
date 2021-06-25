@@ -21,4 +21,9 @@ export class SuperHeroApi extends HttpClient {
     const res = await this.instance.get<SuperHero[]>('/all.json');
     return res.data;
   };
+
+  public getSuperHero = async (id: number): Promise<SuperHero> => {
+    const res = await this.instance.get<SuperHero>(`/id/${id}.json`);
+    return res.data;
+  };
 }

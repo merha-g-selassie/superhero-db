@@ -1,4 +1,4 @@
-import { CssBaseline, Paper } from '@material-ui/core';
+import { CssBaseline } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 
@@ -148,7 +148,7 @@ const GlobalTheme: React.FC<GlobalThemeProps> = ({ children, isDarkMode }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Paper>{children}</Paper>
+      {children}
     </ThemeProvider>
   );
 };
