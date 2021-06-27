@@ -65,6 +65,9 @@ export const HeroDetails: React.FC<HeroDetailsProps> = ({ superHero }) => {
                 <Typography variant="subtitle1" color="textSecondary">
                   Occupation: {superHero.work.occupation}
                 </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  Alignment: {superHero.biography.alignment}
+                </Typography>
               </Grid>
               <Grid container item justify="center" xs={matchesMd ? 7 : 12}>
                 <PowerStatsRadarChart stats={superHero.powerstats} />
