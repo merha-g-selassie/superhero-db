@@ -6,7 +6,6 @@ import React from 'react';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      //   flexGrow: 1,
       width: '100%',
       marginRight: theme.spacing(2),
     },
@@ -22,7 +21,6 @@ export const BackButton: React.FC = () => {
 
   const handleClick = (): void => {
     router.back();
-    // router.push('/');
   };
 
   return (
