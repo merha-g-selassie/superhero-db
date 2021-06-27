@@ -1,7 +1,7 @@
 import React from 'react';
 import { CustomError } from '../types/CustomError';
-import Image from 'next/Image';
 import { Typography, useMediaQuery, useTheme } from '@material-ui/core';
+
 interface ErrorMessageProps {
   error: CustomError;
 }
@@ -13,18 +13,18 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({ error }) => {
   //xs' | 'sm' | 'md' | 'lg' | 'xl'
   return (
     <>
-      {/* <img
+      <img
         src="/images/batman-server-error.png"
         alt="Error"
         width={matchesMd ? '800px' : '500px'}
         height={matchesMd ? '800px' : '500px'}
-      /> */}
-      <Image
+      />
+      {/* <Image
         src="/images/batman-server-error.png"
         alt="Error image"
         width={matchesMd ? 800 : 500}
         height={matchesMd ? 800 : 500}
-      />
+      /> */}
       <div style={{ padding: '0 20px' }}>
         <Typography variant="h5">{message}</Typography>
         <Typography variant="h6">Try refreshing the page.</Typography>

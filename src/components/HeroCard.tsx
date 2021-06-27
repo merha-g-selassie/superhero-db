@@ -17,7 +17,7 @@ interface HeroCardProps {
 
 const useStyles = makeStyles({
   root: {
-    width: 260,
+    width: 300,
   },
   media: {
     height: 250,
