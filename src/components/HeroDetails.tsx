@@ -23,6 +23,7 @@ const useStyles = makeStyles(() =>
     },
     mobileRoot: {
       margin: 16,
+      marginBottom: '20',
       width: 'auto',
     },
     media: {
@@ -40,7 +41,7 @@ export const HeroDetails: React.FC<HeroDetailsProps> = ({ superHero }) => {
   const matchesMd = useMediaQuery(theme.breakpoints.up('md'));
   const classes = useStyles();
   return superHero ? (
-    <div>
+    <div style={{ marginBottom: '50px' }}>
       {matchesSm ? (
         <Card className={classes.root}>
           <CardMedia className={classes.cover} image={superHero.images.lg} title={superHero.name} />
@@ -51,7 +52,7 @@ export const HeroDetails: React.FC<HeroDetailsProps> = ({ superHero }) => {
               justify="space-evenly"
               alignItems={matchesMd ? 'center' : 'flex-start'}
             >
-              <Grid item xs={matchesMd ? 6 : 12}>
+              <Grid item xs={matchesMd ? 5 : 12}>
                 <Typography component="h5" variant="h5">
                   {superHero.name}
                 </Typography>
@@ -65,7 +66,7 @@ export const HeroDetails: React.FC<HeroDetailsProps> = ({ superHero }) => {
                   Occupation: {superHero.work.occupation}
                 </Typography>
               </Grid>
-              <Grid container item justify="center" xs={matchesMd ? 6 : 12}>
+              <Grid container item justify="center" xs={matchesMd ? 7 : 12}>
                 <PowerStatsRadarChart stats={superHero.powerstats} />
               </Grid>
             </Grid>

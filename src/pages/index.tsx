@@ -18,7 +18,7 @@ export default IndexPage;
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const superHeroService = new SuperHeroService();
   const response = await superHeroService.getAllSuperHeroes();
-
+  // { code: 404, message: 'Ooops' }
   return {
     props: {
       response: response,

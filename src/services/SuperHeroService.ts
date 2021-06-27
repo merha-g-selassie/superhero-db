@@ -22,6 +22,7 @@ export class SuperHeroService {
   public async getSuperHeroById(id: number): Promise<SuperHero | CustomError> {
     try {
       const superHero = await this.superHeroApi.getSuperHero(id);
+
       return superHero;
     } catch (err) {
       return requestError(err);

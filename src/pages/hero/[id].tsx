@@ -9,6 +9,7 @@ import { SuperHeroService } from '../../services/SuperHeroService';
 import { CustomError } from '../../types/CustomError';
 import { SuperHero } from '../../types/SuperHero';
 import { isInstanceOfError } from '../../utils/utils';
+import ErrorMessage from '../../components/ErrorMessage';
 
 const HeroPage: NextPage = () => {
   const [superHero, setSuperHero] = useState<SuperHero | null>(null);
@@ -31,24 +32,37 @@ const HeroPage: NextPage = () => {
       setIsLoading(false);
     };
 
-    getSuperHero();
+    if (intId > 0) {
+      getSuperHero();
+    }
   }, [intId]);
 
-  return !error ? (
+  return (
     <Container maxWidth="lg">
       {isLoading ? (
         <Progress isCentered />
       ) : (
         <Grid container direction="column" justify="flex-start" alignItems="center">
           <Grid item>
-            <BackButton />
-            <HeroDetails superHero={superHero} />
+            <Grid container direction="row" alignItems="center" justify="flex-start">
+              <Grid item sm={4} xs={2}>
+                <BackButton />
+              </Grid>
+              <Grid item sm={8} xs={10}>
+                <h1>{superHero ? superHero.name : ''}</h1>
+              </Grid>
+            </Grid>
+            {!error ? (
+              <HeroDetails superHero={superHero} />
+            ) : (
+              <div>
+                <ErrorMessage error={error} />
+              </div>
+            )}
           </Grid>
         </Grid>
       )}
     </Container>
-  ) : (
-    <div>Error</div>
   );
 };
 

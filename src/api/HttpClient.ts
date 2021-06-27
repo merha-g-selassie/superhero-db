@@ -7,6 +7,8 @@ export default abstract class HttpClient {
     this.instance = axios.create({
       baseURL,
     });
+
+    this.initializeInterceptors();
   }
 
   private initializeInterceptors = (): void => {
