@@ -13,6 +13,12 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({ error }) => {
   //xs' | 'sm' | 'md' | 'lg' | 'xl'
   return (
     <>
+      {/* <img
+        src="/images/batman-server-error.png"
+        alt="Error"
+        width={matchesMd ? '800px' : '500px'}
+        height={matchesMd ? '800px' : '500px'}
+      /> */}
       <Image
         src="/images/batman-server-error.png"
         alt="Error image"
