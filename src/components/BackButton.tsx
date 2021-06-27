@@ -1,6 +1,6 @@
 import { createStyles, IconButton, makeStyles, Theme } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 const useStyles = makeStyles((theme: Theme) =>

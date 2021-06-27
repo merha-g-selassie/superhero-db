@@ -24,39 +24,39 @@ export const Container: React.FC<ContainerProps> = ({ response }) => {
   }, [response, name]);
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={{
-        hidden: { scale: 0.8, opacity: 0 },
-        visible: {
-          scale: 1,
-          opacity: 1,
-          transition: {
-            delay: 0.9,
+    <Grid container direction="column" alignItems="center" spacing={1}>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { scale: 0.8, opacity: 0 },
+          visible: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+              delay: 0.9,
+            },
           },
-        },
-      }}
-    >
-      <Grid container direction="column" alignItems="center" spacing={1}>
+        }}
+      >
         <Grid item>
           <h1 style={{ textAlign: 'center' }}>SuperHero DB</h1>
         </Grid>
-        {isInstanceOfError(response) ? (
+      </motion.div>
+      {isInstanceOfError(response) ? (
+        <Grid item>
+          <ErrorMessage error={response as CustomError} />
+        </Grid>
+      ) : (
+        <>
           <Grid item>
-            <ErrorMessage error={response as CustomError} />
+            <SearchBar setValue={setName} />
           </Grid>
-        ) : (
-          <Grid container direction="column" alignItems="center" spacing={5}>
-            <Grid item>
-              <SearchBar setValue={setName} />
-            </Grid>
-            <Grid item>
-              <HeroCardList heroes={filteredHeroes} />
-            </Grid>
+          <Grid item>
+            <HeroCardList heroes={filteredHeroes} />
           </Grid>
-        )}
-      </Grid>
-    </motion.div>
+        </>
+      )}
+    </Grid>
   );
 };
