@@ -18,7 +18,9 @@ export const Container: React.FC<ContainerProps> = ({ response }) => {
 
   useEffect(() => {
     const superHeroes = Array.isArray(response) ? response : [];
-    const filtered = superHeroes.filter((superHero) => superHero.name.toLowerCase().includes(name));
+    const filtered = superHeroes.filter((superHero) =>
+      superHero.name.toLowerCase().includes(name.toLowerCase())
+    );
 
     setFilteredHeroes(filtered);
   }, [response, name]);
