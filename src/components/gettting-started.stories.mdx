@@ -1,0 +1,58 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import Progress, { ProgressProps } from './progress/Progress.tsx';
+
+<Meta title="Getting started" />
+
+
+# h1 Heading 8-)
+
+Sint nisi laborum velit irure non magna dolor laborum exercitation. Veniam incididunt non tempor ipsum qui nulla consequat incididunt aliquip enim ullamco. Id qui ut qui consequat. Ullamco adipisicing aliqua ad consectetur et et sint anim laboris proident veniam. Nostrud occaecat ea elit laborum nulla dolore do duis Lorem et laborum. Proident quis aliqua officia mollit aliqua velit dolore nisi ullamco tempor.
+
+export const Template = (args) => {
+  return <Progress {...args} />;
+};
+
+<Canvas>
+	<Story name="Default" args={{
+		isCentered: false
+	}}>
+		{Template.bind({})}
+	</Story>
+</Canvas>
+
+Sint nisi laborum velit irure non magna dolor laborum exercitation. Veniam incididunt non tempor ipsum qui nulla consequat incididunt aliquip enim ullamco. Id qui ut qui consequat. Ullamco adipisicing aliqua ad consectetur et et sint anim laboris proident veniam. Nostrud occaecat ea elit laborum nulla dolore do duis Lorem et laborum. Proident quis aliqua officia mollit aliqua velit dolore nisi ullamco tempor.
+
+<Canvas>
+	<Story name="Centered" args={{
+		isCentered: true
+	}}>
+		{Template.bind({})}
+	</Story>
+</Canvas>
+
+
+### h3 Heading
+#### h4 Heading
+##### h5 Heading
+###### h6 Heading
+
+```
+    <div>hello</div>
+```
+
+## Horizontal Rules
+
+___
+
+---
+
+***
+
+
+## Typographic replacements
+
+Enable typographer option to see result.
+
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+
+test.. test... test..... test?..... test!....

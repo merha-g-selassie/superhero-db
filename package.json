@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ext=js,jsx,ts,tsx src/",
-    "lint:fix": "yarn lint src/ --fix"
+    "lint:fix": "yarn lint src/ --fix",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "",
   "license": "ISC",
@@ -25,10 +27,18 @@
     "typeface-roboto": "^1.1.13"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@storybook/addon-actions": "^6.3.6",
+    "@storybook/addon-docs": "^6.3.6",
+    "@storybook/addon-essentials": "^6.3.6",
+    "@storybook/addon-links": "^6.3.6",
+    "@storybook/react": "^6.3.6",
     "@types/node": "^15.12.4",
     "@types/react": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
+    "babel-loader": "^8.2.2",
+    "chromatic": "^5.10.0-canary.0",
     "eslint": "^7.29.0",
     "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^8.3.0",

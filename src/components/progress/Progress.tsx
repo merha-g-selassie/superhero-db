@@ -7,9 +7,20 @@ const useStyles = makeStyles({
   },
 });
 
-interface ProgressProps {
+export interface ProgressProps {
   isCentered?: boolean;
 }
+
+/**
+ *
+ * Copmonent displaying a loading indicator
+ *
+ * ```jsx
+ * <div>
+ *  <Progress isCentered />
+ * </div>
+ * ```
+ */
 
 const Progress: React.FC<ProgressProps> = ({ isCentered }) => {
   const classes = useStyles();
